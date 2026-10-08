@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Notifier</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; line-height: 1.6; color: #222; background: #fff; }
+  h1 { color: #4D148C; }
+  a { color: #4D148C; }
+</style>
+</head>
+<body>
+<h1>Claude Notifier</h1>
+<p>Claude Notifier is a personal automation tool used by a single user (Jay Kwon).
+When a long response is produced by the user's local AI assistant session, the tool saves the text
+as a Google Doc in the user's own Google Drive and sends the document link to the user's own
+KakaoTalk account as a notification.</p>
+
+<h2>How it uses Google data</h2>
+<ul>
+  <li>Scope: <code>https://www.googleapis.com/auth/drive.file</code> only.</li>
+  <li>The tool can access only the files it creates itself. It cannot see or read any other files in Google Drive.</li>
+  <li>The tool runs only on the user's own PC. No data is sent to any third-party server operated by the developer.</li>
+</ul>
+
+<p><a href="privacy.html">Privacy Policy</a></p>
+</body>
+</html>
