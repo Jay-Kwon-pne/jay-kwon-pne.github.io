@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>알림 보기</title>
+<style>
+  :root { --bg:#f4f2f8; --card:#fff; --fg:#1d1b22; --sub:#6b6577; --accent:#4D148C; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#141218; --card:#211e27; --fg:#ece8f2; --sub:#a39cb0; --accent:#b48cf0; }
+  }
+  body { margin:0; background:var(--bg); color:var(--fg);
+         font:17px/1.65 -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+  main { max-width:640px; margin:0 auto; padding:20px 16px 40px; }
+  .card { background:var(--card); border-radius:14px; padding:20px 18px;
+          border-top:4px solid var(--accent); box-shadow:0 1px 4px rgba(0,0,0,.08); }
+  h1 { font-size:20px; margin:0 0 12px; line-height:1.4; }
+  #body { white-space:pre-wrap; word-break:keep-all; overflow-wrap:anywhere; margin:0; }
+  .sub { color:var(--sub); font-size:13px; margin-top:16px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <h1 id="title">알림</h1>
+    <p id="body"></p>
+  </div>
+  <p class="sub">Claude 알림 · 메시지 내용은 이 주소(#)에만 담겨 있고 서버에 저장되지 않음</p>
+</main>
+<script>
+  var raw = "";
+  try { raw = decodeURIComponent(location.hash.slice(1)); } catch (e) { raw = location.hash.slice(1); }
+  if (!raw) raw = "표시할 내용이 없어요.";
+  var lines = raw.split("\n");
+  document.getElementById("title").textContent = lines[0];
+  document.getElementById("body").textContent = lines.slice(1).join("\n").replace(/^\n+/, "");
+  document.title = lines[0].slice(0, 40);
+</script>
+</body>
+</html>
